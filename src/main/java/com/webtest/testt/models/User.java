@@ -1,11 +1,10 @@
 package com.webtest.testt.models;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "students")
-public class Student {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +16,10 @@ public class Student {
     @Column(name = "password")
     Integer password;
 
-    public Student(){
+    public User(){
     }
 
-    public Student(String name, String surname, Integer password) {
+    public User(String name, String surname, Integer password) {
         this.name = name;
         this.surname = surname;
         this.password = password;
