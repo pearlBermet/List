@@ -15,14 +15,21 @@ public class User {
     String surname;
     @Column(name = "password")
     Integer password;
+    @Column(name = "grade")
+    Integer grade;
+//    @Column(name = "absense")
+//    Integer absense;
+//    @Column(name = "bonus")
+//    Integer bonus;
 
     public User(){
     }
 
-    public User(String name, String surname, Integer password) {
+    public User(String name, String surname, Integer password, Integer grade) {
         this.name = name;
         this.surname = surname;
         this.password = password;
+        this.grade = grade;
     }
 
     public String getName() {
@@ -47,5 +54,13 @@ public class User {
 
     public void setPassword(Integer password) {
         this.password = password;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
     }
 }

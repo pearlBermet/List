@@ -50,6 +50,7 @@ public class UserServiceImpl implements UserService {
         existingUser.setName(user.getName());
         existingUser.setSurname(user.getSurname());
         existingUser.setPassword(user.getPassword());
+        existingUser.setGrade(user.getGrade());
         //save existing user to DB
         userRepository.save(existingUser);
         return existingUser;
