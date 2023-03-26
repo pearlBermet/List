@@ -17,19 +17,21 @@ public class User {
     Integer password;
     @Column(name = "grade")
     Integer grade;
-//    @Column(name = "absense")
-//    Integer absense;
-//    @Column(name = "bonus")
-//    Integer bonus;
+    @Column(name = "absense")
+    Integer absense;
+    @Column(name = "bonus")
+    Integer bonus;
 
     public User(){
     }
 
-    public User(String name, String surname, Integer password, Integer grade) {
+    public User(String name, String surname, Integer password, Integer grade,Integer absense, Integer bonus) {
         this.name = name;
         this.surname = surname;
         this.password = password;
         this.grade = grade;
+        this.absense = absense;
+        this.bonus = bonus;
     }
 
     public String getName() {
@@ -62,5 +64,21 @@ public class User {
 
     public void setGrade(Integer grade) {
         this.grade = grade;
+    }
+
+    public Integer getAbsense() {
+        return absense;
+    }
+
+    public void setAbsense(Integer absense) {
+        this.absense = absense;
+    }
+
+    public Integer getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(Integer bonus) {
+        this.bonus = bonus;
     }
 }
