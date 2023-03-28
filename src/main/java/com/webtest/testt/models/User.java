@@ -1,6 +1,10 @@
 package com.webtest.testt.models;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+
+
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "students")
@@ -8,29 +12,38 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @Column(name = "name")
-    String name;
+    private String name;
     @Column(name = "surname")
-    String surname;
+    private String surname;
     @Column(name = "password")
-    Integer password;
+    private Integer password;
     @Column(name = "grade")
-    Integer grade;
-    @Column(name = "absense")
-    Integer absense;
+    private Integer grade;
+    @Column(name = "absence")
+    private Integer absence;
     @Column(name = "bonus")
-    Integer bonus;
+    private Integer bonus;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "users_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> role;
 
     public User(){
     }
 
-    public User(String name, String surname, Integer password, Integer grade,Integer absense, Integer bonus) {
+    public User(String name, String surname, Integer password, Integer grade,Integer absence, Integer bonus) {
         this.name = name;
         this.surname = surname;
         this.password = password;
         this.grade = grade;
-        this.absense = absense;
+        this.absence = absence;
         this.bonus = bonus;
     }
 
@@ -66,16 +79,24 @@ public class User {
         this.grade = grade;
     }
 
-    public Integer getAbsense() {
-        return absense;
+    public Integer getAbsence() {
+        return absence;
     }
 
-    public void setAbsense(Integer absense) {
-        this.absense = absense;
+    public void setAbsence(Integer absence) {
+        this.absence = absence;
     }
 
     public Integer getBonus() {
         return bonus;
+    }
+
+    public void setBonus(Integer bonus) {
+        this.bonus = bonus;
+    }
+
+    public Collection<Role> getRole() {
+        return Role;
     }
 
     public void setBonus(Integer bonus) {
