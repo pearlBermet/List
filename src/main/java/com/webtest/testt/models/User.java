@@ -91,15 +91,4 @@ public class User {
         return bonus;
     }
 
-    public void setBonus(Integer bonus) {
-        this.bonus = bonus;
-    }
-
-    public Collection<Role> getRole() {
-        return Role;
-    }
-
-    public void setBonus(Integer bonus) {
-        this.bonus = bonus;
-    }
 }
